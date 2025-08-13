@@ -1,4 +1,4 @@
-- 👋 Hi, I’m @Hibiikay
+- 👋 Hi, I’m @Olarinde
 - 👀 I’m interested in data analytics
 - 🌱 I’m currently learning coding
 - 💞️ I’m looking to collaborate on ...
