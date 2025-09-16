@@ -1,0 +1,28 @@
+async function activityTable(day) {
+  // Read list of log files
+  let logFileList = await textFile("camera_logs.txt");
+  let files = logFileList.trim().split("\n");
+
+  // Initialize table with 24 zeros
+  let table = Array(24).fill(0);
+
+  // Process each log file
+  for (let file of files) {
+    let content = await textFile(file);
+    let timestamps = content.trim().split("\n");
+
+    for (let ts of timestamps) {
+      if (!ts) continue; // skip empty lines
+      let time = new Date(Number(ts));
+      if (time.getDay() === day) {
+        table[time.getHours()]++;
+      }
+    }
+  }
+
+  return table;
+}
+
+// Example usage
+activityTable(1)
+  .then(table => console.log(activityGraph(table)));
